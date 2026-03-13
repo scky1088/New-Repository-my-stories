@@ -3,61 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>故事森林：雲端圖書館</title>
+    <title>三國演義故事館 - 學生閱讀區</title>
     <style>
-        body { font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif; background: #f0f2f5; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; }
-        header { background: #4a90e2; color: white; width: 100%; text-align: center; padding: 40px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .container { max-width: 1200px; width: 90%; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 40px 0; }
-        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; text-align: center; border: 1px solid #eee; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
-        .card-icon { font-size: 60px; padding: 30px; background: #eef5ff; color: #4a90e2; }
-        .card-info { padding: 20px; }
-        .card-info h3 { margin: 0 0 10px; color: #333; }
-        .card-info p { color: #777; font-size: 14px; margin-bottom: 20px; }
-        .read-btn { display: inline-block; background: #4a90e2; color: white; padding: 10px 25px; border-radius: 20px; text-decoration: none; font-weight: bold; transition: 0.2s; }
-        .read-btn:hover { background: #357abd; }
-        footer { margin-top: auto; padding: 20px; color: #999; font-size: 13px; }
+        :root {
+            --ancient-red: #8e2121;
+            --ancient-gold: #c5a059;
+            --paper-bg: #fcf8f0;
+        }
+
+        body { 
+            font-family: 'Noto Serif TC', 'PingFang TC', 'Microsoft JhengHei', serif; 
+            background-color: var(--paper-bg); 
+            background-image: radial-gradient(#e5ddd3 1px, transparent 1px);
+            background-size: 20px 20px;
+            margin: 0; 
+            color: #333;
+        }
+
+        header { 
+            background: var(--ancient-red); 
+            color: #fff; 
+            text-align: center; 
+            padding: 60px 20px; 
+            border-bottom: 5px solid var(--ancient-gold);
+        }
+
+        header h1 { margin: 0; font-size: 2.8rem; letter-spacing: 8px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        header p { margin-top: 15px; font-size: 1.1rem; opacity: 0.9; }
+
+        .container { 
+            max-width: 1100px; 
+            margin: 40px auto; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 30px; 
+            padding: 0 20px;
+        }
+
+        .card { 
+            background: white; 
+            border: 1px solid #dcd3c1; 
+            border-radius: 4px; 
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--ancient-gold);
+        }
+
+        .card-header {
+            background: #f9f4e8;
+            padding: 30px;
+            text-align: center;
+            font-size: 50px;
+            border-bottom: 1px dashed #dcd3c1;
+        }
+
+        .card-body { padding: 25px; text-align: center; flex-grow: 1; }
+        
+        .card-body h3 { 
+            margin: 0 0 20px 0; 
+            color: var(--ancient-red); 
+            font-size: 1.3rem; 
+            line-height: 1.4;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .read-btn { 
+            display: inline-block; 
+            background: var(--ancient-red); 
+            color: white; 
+            padding: 12px 40px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 2px;
+            transition: 0.2s;
+        }
+
+        .read-btn:hover { background: #b03030; letter-spacing: 2px; }
+
+        .chapter-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--ancient-gold);
+            color: white;
+            padding: 2px 10px;
+            font-size: 12px;
+            border-radius: 2px;
+        }
+
+        footer { text-align: center; padding: 50px; color: #888; border-top: 1px solid #e0e0e0; margin-top: 40px; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>📚 我的故事圖書館</h1>
-    <p>挑選一本你喜歡的故事，開啟閱讀冒險吧！</p>
+    <h1>📜 三國演義故事館</h1>
+    <p>「滾滾長江東逝水，浪花淘盡英雄」—— 經典篇章選讀</p>
 </header>
 
 <div class="container">
+    
     <div class="card">
-        <div class="card-icon">📖</div>
-        <div class="card-info">
-            <h3>故事一：神祕的森林</h3>
-            <p>適合年級：小學一年級</p>
-            <a href="pdf/story1.pdf" target="_blank" class="read-btn">開啟閱讀</a>
+        <span class="chapter-tag">序章</span>
+        <div class="card-header">🤝</div>
+        <div class="card-body">
+            <h3>《三國演義》第一回 桃園結義</h3>
+            <a href="PDF/《三國演義》第一回 桃園結義.pdf" target="_blank" class="read-btn">開啟捲軸</a>
         </div>
     </div>
 
     <div class="card">
-        <div class="card-icon">📕</div>
-        <div class="card-info">
-            <h3>故事二：小勇者的挑戰</h3>
-            <p>適合年級：小學二年級</p>
-            <a href="pdf/story2.pdf" target="_blank" class="read-btn">開啟閱讀</a>
+        <span class="chapter-tag">第三回</span>
+        <div class="card-header">🐎</div>
+        <div class="card-body">
+            <h3>《三國演義》第三回 三英戰呂布</h3>
+            <a href="PDF/《三國演義》第三回 三英戰呂布.pdf" target="_blank" class="read-btn">開啟捲軸</a>
         </div>
     </div>
 
     <div class="card">
-        <div class="card-icon">📔</div>
-        <div class="card-info">
-            <h3>故事三：宇宙大冒險</h3>
-            <p>適合年級：小學三年級</p>
-            <a href="pdf/story3.pdf" target="_blank" class="read-btn">開啟閱讀</a>
+        <span class="chapter-tag">第四回</span>
+        <div class="card-header">🗡️</div>
+        <div class="card-body">
+            <h3>《三國演義》第四回 謀董卓 曹操獻刀</h3>
+            <a href="PDF/《三國演義》第四回 謀董卓 曹操獻刀.pdf" target="_blank" class="read-btn">開啟捲軸</a>
         </div>
     </div>
 
+    <div class="card">
+        <span class="chapter-tag">經典戰役</span>
+        <div class="card-header">🚩</div>
+        <div class="card-body">
+            <h3>《三國演義》長坂坡之戰</h3>
+            <a href="PDF/《三國演義》長坂坡之戰.pdf" target="_blank" class="read-btn">開啟捲軸</a>
+        </div>
     </div>
+
+    <div class="card">
+        <span class="chapter-tag">經典戰役</span>
+        <div class="card-header">🔥</div>
+        <div class="card-body">
+            <h3>《三國演義》赤壁之戰</h3>
+            <a href="PDF/《三國演義》赤壁之戰.pdf" target="_blank" class="read-btn">開啟捲軸</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <span class="chapter-tag">英雄氣概</span>
+        <div class="card-header">🧪</div>
+        <div class="card-body">
+            <h3>《三國演義》關雲長刮骨療毒</h3>
+            <a href="PDF/《三國演義》關雲長刮骨療毒.pdf" target="_blank" class="read-btn">開啟捲軸</a>
+        </div>
+    </div>
+
+</div>
 
 <footer>
-    &copy; 2026 專業教育網頁設計 | 專為學生打造
+    <p>數位閱讀教室 - 讓經典文學陪伴學生成長</p>
 </footer>
 
 </body>
