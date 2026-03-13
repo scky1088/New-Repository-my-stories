@@ -10,6 +10,7 @@
             --ancient-gold: #c5a059;
             --paper-bg: #fcf8f0;
             --ink-black: #2c2c2c;
+            --text-gray: #555;
         }
         body { 
             font-family: 'Noto Serif TC', 'PingFang TC', 'Microsoft JhengHei', serif; 
@@ -29,11 +30,12 @@
         }
         header h1 { margin: 0; font-size: 3rem; letter-spacing: 10px; text-shadow: 3px 3px 6px rgba(0,0,0,0.4); }
         header p { margin-top: 15px; font-size: 1.2rem; opacity: 0.9; font-style: italic; }
+        
         .container { 
-            max-width: 1100px; 
+            max-width: 1200px; 
             margin: 40px auto; 
             display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
             gap: 40px; 
             padding: 0 20px;
         }
@@ -48,25 +50,36 @@
             text-decoration: none;
             color: inherit;
             overflow: hidden;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
         }
-        .card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(142, 33, 33, 0.2); }
+        .card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(142, 33, 33, 0.2); border-color: var(--ancient-red); }
+        
         .card-img-container {
             width: 100%; height: 220px; background: #fdfaf2; overflow: hidden;
             display: flex; align-items: center; justify-content: center;
             border-bottom: 3px solid var(--ancient-gold);
         }
-        .card-img-container img { width: 100%; height: 100%; object-fit: cover; }
-        .card-body { padding: 25px; text-align: center; flex-grow: 1; }
+        .card-img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .card:hover .card-img-container img { transform: scale(1.08); }
+
+        .card-body { padding: 20px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; }
         .card-body h3 { 
-            margin: 0 0 20px 0; color: var(--ancient-red); font-size: 1.35rem; 
-            height: 2.5em; display: flex; align-items: center; justify-content: center;
-            letter-spacing: 2px;
+            margin: 0 0 12px 0; color: var(--ancient-red); font-size: 1.25rem; 
+            letter-spacing: 1px; font-weight: bold;
         }
+        .card-desc {
+            font-size: 0.95rem; color: var(--text-gray); line-height: 1.6;
+            margin-bottom: 20px; flex-grow: 1; text-align: justify;
+            padding: 0 10px; border-left: 2px solid #f0e6d2;
+        }
+
         .read-btn { 
             display: inline-block; background: var(--ancient-red); color: white; 
-            padding: 12px 35px; text-decoration: none; font-weight: bold; 
-            border-radius: 2px; letter-spacing: 4px;
+            padding: 10px 30px; text-decoration: none; font-weight: bold; 
+            border-radius: 2px; letter-spacing: 4px; transition: 0.3s;
         }
+        .card:hover .read-btn { background: #b03030; }
+
         .chapter-tag {
             position: absolute; top: 0; right: 20px; background: var(--ancient-red);
             color: white; padding: 10px 5px; font-size: 13px; z-index: 10;
@@ -84,42 +97,66 @@
 <div class="container">
     <a href="PDF/1.pdf" target="_blank" class="card">
         <span class="chapter-tag">桃園結義</span>
-        <div class="card-img-container"><img src="img/1.jpg"></div>
-        <div class="card-body"><h3>第一回 桃園三結義</h3><span class="read-btn">開啟捲軸</span></div>
+        <div class="card-img-container"><img src="img/1.jpg" alt="桃園結義"></div>
+        <div class="card-body">
+            <h3>第一回 桃園三結義</h3>
+            <p class="card-desc">亂世中，劉關張於花下焚香跪拜。不求同生，但求同死，這份肝膽相照的義氣，開啟了三國的傳奇序幕。</p>
+            <div><span class="read-btn">開啟捲軸</span></div>
+        </div>
     </a>
 
     <a href="PDF/2.pdf" target="_blank" class="card">
         <span class="chapter-tag">三英戰呂布</span>
-        <div class="card-img-container"><img src="img/2.png"></div>
-        <div class="card-body"><h3>第三回 三英戰呂布</h3><span class="read-btn">開啟捲軸</span></div>
+        <div class="card-img-container"><img src="img/2.png" alt="三英戰呂布"></div>
+        <div class="card-body">
+            <h3>第三回 三英戰呂布</h3>
+            <p class="card-desc">虎牢關前，戰鼓雷鳴！劉關張合戰天下第一猛將呂布，刀光劍影間，展現最強武力的巔峰對決。</p>
+            <div><span class="read-btn">開啟捲軸</span></div>
+        </div>
     </a>
 
     <a href="PDF/3.pdf" target="_blank" class="card">
         <span class="chapter-tag">曹操獻刀</span>
-        <div class="card-img-container"><img src="img/3.jpg"></div>
-        <div class="card-body"><h3>第四回 謀董卓 曹操獻刀</h3><span class="read-btn">開啟捲軸</span></div>
+        <div class="card-img-container"><img src="img/3.jpg" alt="曹操獻刀"></div>
+        <div class="card-body">
+            <h3>第四回 謀董卓 曹操獻刀</h3>
+            <p class="card-desc">隻身深入賊巢，曹操欲以七星寶刀刺殺奸臣董卓。關鍵時刻，他是英雄還是梟雄？生死僅在一線間。</p>
+            <div><span class="read-btn">開啟捲軸</span></div>
+        </div>
     </a>
 
     <a href="PDF/4.pdf" target="_blank" class="card">
-        <span class="chapter-tag">長坂坡</span>
-        <div class="card-img-container"><img src="img/4.jpg"></div>
-        <div class="card-body"><h3>趙子龍單騎救主</h3><span class="read-btn">開啟捲軸</span></div>
+        <span class="chapter-tag">長坂橋</span>
+        <div class="card-img-container"><img src="img/4.jpg" alt="張飛斷橋"></div>
+        <div class="card-body">
+            <h3>第四十二回 張飛大鬧長坂橋</h3>
+            <p class="card-desc">張飛決定留下來斷後，率二十餘騎前往當陽橋阻攔曹軍。憑藉一聲怒吼，竟生生嚇退萬千敵軍，護主周全。</p>
+            <div><span class="read-btn">開啟捲軸</span></div>
+        </div>
     </a>
 
     <a href="PDF/5.pdf" target="_blank" class="card">
         <span class="chapter-tag">赤壁之戰</span>
-        <div class="card-img-container"><img src="img/5.jpg"></div>
-        <div class="card-body"><h3>火燒赤壁 曹軍大敗</h3><span class="read-btn">開啟捲軸</span></div>
+        <div class="card-img-container"><img src="img/5.jpg" alt="赤壁之戰"></div>
+        <div class="card-body">
+            <h3>第四十八至四十九回 赤壁之戰 曹軍大敗</h3>
+            <p class="card-desc">江面上烈焰沖天！諸葛亮借東風、周瑜施火攻，且看孫劉聯軍如何以少勝多，燒出三國鼎立的新局。</p>
+            <div><span class="read-btn">開啟捲軸</span></div>
+        </div>
     </a>
 
     <a href="PDF/6.pdf" target="_blank" class="card">
         <span class="chapter-tag">刮骨療毒</span>
-        <div class="card-img-container"><img src="img/6.jpg"></div>
-        <div class="card-body"><h3>關雲長刮骨療毒</h3><span class="read-btn">開啟捲軸</span></div>
+        <div class="card-img-container"><img src="img/6.jpg" alt="刮骨療毒"></div>
+        <div class="card-body">
+            <h3>第七十五回 關雲長刮骨療毒</h3>
+            <p class="card-desc">中毒箭而不變色，對弈間任由刀刃刮骨悉悉有聲。關羽展現超凡膽識，詮釋何謂真正的武聖之氣。</p>
+            <div><span class="read-btn">開啟捲軸</span></div>
+        </div>
     </a>
 </div>
 
-<footer><p style="text-align:center; padding:40px; color:#777;">數位文學教室 · 讓經典伴隨成長</p></footer>
+<footer><p style="text-align:center; padding:40px; color:#777; font-size: 0.9rem;">數位文學教室 · 讓經典伴隨成長</p></footer>
 
 </body>
 </html>
