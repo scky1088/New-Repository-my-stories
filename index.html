@@ -31,109 +31,116 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        header h1 { margin: 0; font-size: 2.8rem; letter-spacing: 8px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        header p { margin-top: 15px; font-size: 1.1rem; opacity: 0.9; font-style: italic; }
+        header h1 { margin: 0; font-size: 3rem; letter-spacing: 10px; text-shadow: 3px 3px 6px rgba(0,0,0,0.4); }
+        header p { margin-top: 15px; font-size: 1.2rem; opacity: 0.9; font-style: italic; letter-spacing: 2px; }
 
         .container { 
             max-width: 1100px; 
             margin: 40px auto; 
             display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-            gap: 35px; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 40px; 
             padding: 0 20px;
         }
 
         .card { 
             background: white; 
-            border: 2px solid #dcd3c1; 
+            border: 1px solid #dcd3c1; 
             border-radius: 4px; 
             position: relative;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             display: flex;
             flex-direction: column;
             text-decoration: none;
             color: inherit;
             overflow: hidden;
-            box-shadow: 3px 3px 0px #dcd3c1;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
         }
 
         .card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 15px 30px rgba(142, 33, 33, 0.15);
+            transform: translateY(-12px); 
+            box-shadow: 0 20px 40px rgba(142, 33, 33, 0.2);
             border-color: var(--ancient-red);
         }
 
-        /* 人物圖片區塊 */
+        /* 人物立繪容器 */
         .card-img-container {
             width: 100%;
-            height: 200px;
-            background: #f9f4e8;
+            height: 220px;
+            background: #fdfaf2;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-bottom: 1px solid #eee;
+            border-bottom: 3px solid var(--ancient-gold);
         }
 
         .card-img-container img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* 讓圖片填滿區域 */
-            transition: transform 0.5s ease;
+            object-fit: cover;
+            transition: transform 0.6s ease;
         }
 
         .card:hover .card-img-container img {
-            transform: scale(1.1); /* 滑鼠移上去圖片會微放大 */
+            transform: scale(1.1);
         }
 
-        .card-body { padding: 25px; text-align: center; flex-grow: 1; background: #fff; }
+        .card-body { padding: 25px; text-align: center; flex-grow: 1; }
         
         .card-body h3 { 
-            margin: 0 0 15px 0; 
+            margin: 0 0 20px 0; 
             color: var(--ancient-red); 
-            font-size: 1.25rem; 
-            height: 3em;
+            font-size: 1.3rem; 
+            height: 2.5em;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-top: 1px solid #f0f0f0;
+            border-top: 1px solid #eee;
             padding-top: 15px;
+            letter-spacing: 1px;
         }
 
         .read-btn { 
             display: inline-block; 
             background: var(--ancient-red); 
             color: white; 
-            padding: 10px 30px; 
+            padding: 12px 35px; 
             text-decoration: none; 
             font-weight: bold; 
             border-radius: 2px;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
+            transition: 0.3s;
         }
 
-        /* 像印章一樣的標籤 */
+        .card:hover .read-btn {
+            background: #b03030;
+            box-shadow: 0 4px 10px rgba(176, 48, 48, 0.3);
+        }
+
+        /* 古風垂直標籤 */
         .chapter-tag {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(142, 33, 33, 0.85);
+            top: 0;
+            right: 20px;
+            background: var(--ancient-red);
             color: white;
-            padding: 5px 10px;
-            font-size: 12px;
-            border-radius: 2px;
+            padding: 10px 5px;
+            font-size: 13px;
             z-index: 10;
-            writing-mode: vertical-rl; /* 垂直文字，更有古風 */
-            letter-spacing: 2px;
+            writing-mode: vertical-rl;
+            letter-spacing: 3px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.2);
         }
 
-        footer { text-align: center; padding: 60px 20px; color: #666; border-top: 1px solid #dcd3c1; margin-top: 50px; }
+        footer { text-align: center; padding: 60px 20px; color: #777; border-top: 1px solid #dcd3c1; margin-top: 50px; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>📜 三國演義故事館</h1>
-    <p>「滾滾長江東逝水，浪花淘盡英雄」</p>
+    <p>「亂世英雄出輩才，經典篇章展宏圖」</p>
 </header>
 
 <div class="container">
@@ -152,63 +159,5 @@
     <a href="PDF/2.pdf" target="_blank" class="card">
         <span class="chapter-tag">三英戰呂布</span>
         <div class="card-img-container">
-            <img src="img/2.jpg" alt="第三回">
+            <img src="img/2.png" alt="第三回">
         </div>
-        <div class="card-body">
-            <h3>第三回 三英戰呂布</h3>
-            <span class="read-btn">開啟捲軸</span>
-        </div>
-    </a>
-
-    <a href="PDF/3.pdf" target="_blank" class="card">
-        <span class="chapter-tag">曹操獻刀</span>
-        <div class="card-img-container">
-            <img src="img/3.jpg" alt="第四回">
-        </div>
-        <div class="card-body">
-            <h3>第四回 謀董卓 曹操獻刀</h3>
-            <span class="read-btn">開啟捲軸</span>
-        </div>
-    </a>
-
-    <a href="PDF/4.pdf" target="_blank" class="card">
-        <span class="chapter-tag">長坂坡</span>
-        <div class="card-img-container">
-            <img src="img/4.jpg" alt="長坂坡">
-        </div>
-        <div class="card-body">
-            <h3>趙子龍單騎救主</h3>
-            <span class="read-btn">開啟捲軸</span>
-        </div>
-    </a>
-
-    <a href="PDF/5.pdf" target="_blank" class="card">
-        <span class="chapter-tag">赤壁之戰</span>
-        <div class="card-img-container">
-            <img src="img/5.jpg" alt="赤壁">
-        </div>
-        <div class="card-body">
-            <h3>火燒赤壁 曹軍大敗</h3>
-            <span class="read-btn">開啟捲軸</span>
-        </div>
-    </a>
-
-    <a href="PDF/6.pdf" target="_blank" class="card">
-        <span class="chapter-tag">刮骨療毒</span>
-        <div class="card-img-container">
-            <img src="img/6.jpg" alt="關雲長">
-        </div>
-        <div class="card-body">
-            <h3>關雲長刮骨療毒</h3>
-            <span class="read-btn">開啟捲軸</span>
-        </div>
-    </a>
-
-</div>
-
-<footer>
-    <p>數位文學教室 · 經典傳承</p>
-</footer>
-
-</body>
-</html>
